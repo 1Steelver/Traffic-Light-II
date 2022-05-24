@@ -1,24 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
 
-//create your first component
+
 const Home = () => {
+
+	const [isGreen, setIsGreen] = useState(false);
+	const [isYellow, setIsYellow] = useState(false);
+	const [IsRed, setIsRed] = useState(false);
+
+	const onGreen = () => {
+		setIsGreen(true);
+		setIsYellow(false);
+		setIsRed(false);
+	};
+
+	const onYellow = () => {
+		setIsGreen(false);
+		setIsYellow(true);
+		setIsRed(false);
+	};
+
+	const onRed = () => {
+		setIsGreen(false);
+		setIsYellow(false);
+		setIsRed(true);
+	};
+
+	const rectangulo = {
+		with: "150px",
+		height: "350px",
+		border: "3px solid #555",
+		background: "#000000",
+	};
 	return (
-		<div>
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div
+			className="d-flex flex-coumn at-5 text-center mx-auto"
+			style={rectangulo}>
+			<div className="col">
+				<button
+					onClick={() => onGreen()}
+					className={`${isGreen === true ? "bg-success" : ""
+						} rounded-circle p-5`}></button>
+
+
+				<button
+					onClick={() => onYellow()}
+					className={`${isYellow === true ? "bg-warning" : ""
+						} rounded-circle p-5`}></button>
+
+
+				<button
+					onClick={() => onRed()}
+					className={`${IsRed === true ? "bg-danger" : ""
+						} rounded-circle p-5`}></button>
+			</div>
 		</div>
 	);
 };
