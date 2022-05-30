@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 
-
-
 const Home = () => {
-
 	const [isGreen, setIsGreen] = useState(false);
 	const [isYellow, setIsYellow] = useState(false);
 	const [IsRed, setIsRed] = useState(false);
@@ -34,25 +31,27 @@ const Home = () => {
 	};
 	return (
 		<div
-			className="d-flex flex-coumn at-5 text-center mx-auto"
+			className="d-flex flex-column at-5 text-center mx-auto"
 			style={rectangulo}>
+			<p style={{color:"blue"}}>Traffic-Light</p>
 			<div className="col">
 				<button
 					onClick={() => onGreen()}
-					className={`${isGreen === true ? "bg-success" : ""
-						} rounded-circle p-5`}></button>
-
+					className={`${
+						isGreen === true ? "bg-success" : ""
+					} rounded-circle p-5`}></button>
 
 				<button
 					onClick={() => onYellow()}
-					className={`${isYellow === true ? "bg-warning" : ""
-						} rounded-circle p-5`}></button>
-
+					className={`${
+						isYellow === true ? "bg-warning" : ""
+					} rounded-circle p-5`}></button>
 
 				<button
 					onClick={() => onRed()}
-					className={`${IsRed === true ? "bg-danger" : ""
-						} rounded-circle p-5`}></button>
+					className={`${
+						IsRed === true ? "bg-danger" : ""
+					} rounded-circle p-5`}></button>
 			</div>
 		</div>
 	);
